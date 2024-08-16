@@ -1,0 +1,49 @@
+﻿@model DA_BAN_SACH.Models.TacGia
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/AdminPages/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>TacGia</h4>
+        <hr />
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TenTG)</th>
+                    <td>@Html.DisplayFor(model => model.TenTG)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+                    <td>@Html.DisplayFor(model => model.DiaChi)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TieuSu)</th>
+                    <td>@Html.DisplayFor(model => model.TieuSu)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DienThoai)</th>
+                    <td>@Html.DisplayFor(model => model.DienThoai)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.VietSach.VaiTro)</th>
+                    <td>@Html.DisplayFor(model => model.VietSach.VaiTro)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>

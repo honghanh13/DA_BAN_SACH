@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DA_BAN_SACH.Models.Sach>
+@{
+    ViewBag.Title = "Shop";
+}
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="colored">
+                    <h1 class="page-title">Shop</h1>
+                    <div class="breadcum-items">
+                        <span class="item"><a href="@Url.Action("Index","Home")">Home /</a></span>
+                        <span class="item colored">Shop</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="margin-top: 15em;">
+                            @using (Html.BeginForm("Index", "Shop", FormMethod.Get))
+                            {
+                            <div class="input-group">
+                                @Html.DropDownList("maCD", ViewBag.ChuDe as SelectList, "Chọn chủ đề", new { @class = "form-select", style = "width: 100%", onchange = "this.form.submit();" })
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                             }
+                                </div>
+                            </div>
+                    <div class="col-md-6">
+                        <div style="margin-top: 15em;">
+                            @using (Html.BeginForm("Index", "Shop", FormMethod.Get))
+                            {
+                            <div class="input-group">
+                                @Html.DropDownList("maNXB", ViewBag.NhaXuatBan as SelectList, "Chọn nhà xuất bản", new { @class = "form-control", style = "width: 100%", onchange = "this.form.submit();" })
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                             }
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--site-banner-->
+
+<section class="padding-large">
+    <div class="container">
+        <div class="row">
+
+            <div class="products-grid grid">
+                @foreach (var item in Model)
+                {
+                    <figure class="product-style" >
+                        <a href="@Url.Action("ShopDetails","Shop",new { id = item.MaSach})" style="text-decoration:none; ">
+                            <img src=" ~/Images/@item.AnhBia" style="width:360px;height:360px; padding:5%;" alt="Books" class="product-item">
+                        </a>
+                            <button onclick="window.location.href = '@Url.Action("AddToCart","Cart", new { productId = item.MaSach })'" id="addtocart" class="add-to-cart">Add To Cart</button>
+
+                            <figcaption>
+                                <a href="@Url.Action("ShopDetails","Shop",new { id = item.MaSach})" style="text-decoration:none;">
+                                    <h3>@(item.TenSach.Length > 20 ? item.TenSach.Substring(0, 20) + "..." : item.TenSach)</h3>
+                                </a>
+                                    <p>@item.TacGia.TenTG</p>
+                                    <div class="item-price">@item.GiaBan.Value.ToString("#,##0 ₫") </div>
+                            </figcaption>
+                        
+                    </figure>
+
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+

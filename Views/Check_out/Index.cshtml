@@ -1,0 +1,97 @@
+﻿@using DA_BAN_SACH.Models
+@model IEnumerable<DA_BAN_SACH.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+}
+<!-- Form Wrapper -->
+@using (Html.BeginForm("Processorder", "Check_out", FormMethod.Post, new { id = "form-wrapper" }))
+{
+    <div id="form-left-wrapper">
+        <div id="form-tab-menu">
+            <div class="tab-menu-item shipping-tab current">Payment</div>
+        </div>
+        <!-- Body of the Form -->
+        <div id="form-body">
+
+            <div id="payment-body">
+                <div id="contact-details">
+                    <div class='form-input input-small'>
+                        <label>Ho Ten</label><br />
+                        <input type='text' name='cusName' placeholder='Full Name' id='firstname-input' />
+                    </div>
+                   
+                    <div class='form-input input-medium'>
+                        <label>E-mail</label><br />
+                        <input type='email' name='cusEmail' placeholder='E-Mail Address' id='email-input' />
+                    </div>
+                </div>
+                <div class='hr'></div>
+                <div id="Address-details">
+                    <div class='form-input input-small'>
+                        <label>So dien thoai</label><br />
+                        <input type='text' name='cusPhone' placeholder='Phone Number' id='contact-input' />
+                    </div>
+                    <div class='form-input input-medium'>
+                        <label>Dia chi</label><br />
+                        <input type='text' name='cusAddress' placeholder='Street Address' id='address-input' />
+                    </div>
+                    <div class='form-input ' style="width:100%">
+                        <label>Ghi chu</label><br />
+                        <input type='text' name='Note' placeholder='Note' id='address-input' />
+                    </div>
+                   
+                    <div class='hr' style='margin-bottom: 5px;'></div>
+                    <div class='form-input-checkbox'>
+                        <input type="checkbox" id="shipping-checkbox" /> My shipping and billing information is the same.
+                    </div>
+                </div>
+                <div id="form-submit">
+                    <input type='submit' value='Payment' />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Shopping Cart Menu -->
+    <div id="form-cart-menu">
+        <div class="shopping-cart-head">
+            <h1>Shopping Cart</h1>
+        </div>
+        <table id="shopping-cart-menu">
+            @{
+                var price = 0;
+                var total = 0;
+                foreach (var item in Model)
+                {
+                    price = item.GetTotalPrice();
+                    total += item.GetTotalPrice();
+                    <tr class='shopping-cart-item'>
+                        <td class='cart-title'>@item.sach.TenSach</td>
+                        <td style="color:#fff">@price.ToString("#,##0 đ") vnd</td>
+                    </tr>
+                }
+            }
+
+            <tr class='shopping-cart-total'>
+                <td class='cart-total'>Total</td>
+                <td >@total.ToString("#,##0 đ") </td>
+            </tr>
+        </table>
+    </div>
+}
+
+
+@section Style{
+
+    <link href="~/Content/check_out.css" rel="stylesheet" />
+
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/script/checkout.js"></script>
+}
+
+
+
+

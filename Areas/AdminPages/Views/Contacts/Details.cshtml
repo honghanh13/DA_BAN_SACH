@@ -1,0 +1,41 @@
+﻿@model DA_BAN_SACH.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AdminPages/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+
+    <h2>Details</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Thuộc tính</th>
+                <th>Dữ liệu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.HoTen)</td>
+                <td>@Html.DisplayFor(model => model.HoTen)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NoiDung)</td>
+                <td>@Html.DisplayFor(model => model.NoiDung)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NgayGui)</td>
+                <td>@Html.DisplayFor(model => model.NgayGui)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IdContact }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </div>

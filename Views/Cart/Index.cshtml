@@ -1,0 +1,142 @@
+﻿@using DA_BAN_SACH.Models;
+@model IEnumerable<DA_BAN_SACH.Models.CartItem>
+@{
+    ViewBag.Title = "Cart";
+    var total = 0;
+    bool hasItems = (Session["cart"] != null) && ((List<CartItem>)Session["cart"]).Count > 0;
+}
+<div class="body">
+    <div class="card">
+        <div class="row">
+           
+
+           
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col"><h4><b>Shopping Cart</b></h4></div>
+
+                        @*<div class="col align-self-center text-right text-muted">3 items</div>*@
+                    </div>
+                </div>
+
+
+                @using (Html.BeginForm("UpdateCart", "Cart", FormMethod.Post))
+                {
+
+                    if (Model != null)
+                    {
+
+                        foreach (var item in Model)
+                        {
+                            <div class="row border-top border-bottom">
+                                <div class="row main align-items-center">
+                                    <div class="col-2"><img class="img-fluid" src="~/Images/@item.sach.AnhBia"></div>
+                                    <div class="col">
+                                        @*<div class="row text-muted">Shirt</div>*@
+                                        <div class="row">@item.sach.TenSach</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="quantity">
+                                            <div class="pro-qty-2">
+                                                <input type="text" name="quantity" value="@item.Quantity">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        @{
+                                            var price = item.GetTotalPrice();
+
+                                            total += item.GetTotalPrice();
+                                        }
+
+
+                                        @price.ToString("#,##0") vnd
+
+                                        <span class="close"><a href="@Url.Action("RemoveItem","Cart",new { Id = item.sach.MaSach})">&#10005;</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="row border-top border-bottom">
+                            <div class="row main align-items-center">
+                                <div class="col-lg-12">
+                                    <p style="color:red">Không có sản phẩm trong giỏ hàng</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+
+
+                    <div class="back-to-shop">
+                        <a href="@Url.Action("Index","Shop")">
+                            &leftarrow;
+                            <span class="text-muted">Back to shop</span>
+                        </a>
+                    </div>
+
+                    <button class="btn" type="submit" style="@(hasItems ? "" : "pointer-events:none;background: #ddd;")">UPDATE CART</button>
+
+                }
+            </div>
+
+                                        
+            <div class="col-md-4 summary">
+                <div><h5><b>Summary</b></h5></div>
+                <hr>
+     
+                <form>
+                    <p>SHIPPING</p>
+                    <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
+                    <p>GIVE CODE</p>
+                    <input id="code" placeholder="Enter your code">
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">TOTAL PRICE</div>
+                    <div class="col text-right">
+                        @{  var tien = "";
+                            if (Model != null)
+                            {
+                                tien = @total.ToString("#,##0 vnd");
+                            }
+                            else
+                            {
+                                tien = "0";
+                            }
+                        }
+                        @tien
+                    </div>
+                </div>
+                @if (Session["MaKH"] == null)
+                {
+                    <a href="@Url.Action("Login","Home") " style="@(hasItems ? "" : "pointer-events:none;background: #ddd;")" class="btn btn-black">CHECKOUT</a>
+                }
+            else{ 
+                    <a class="btn btn-black" style="@(hasItems ? "" : "pointer-events:none;background: #ddd;")" href="@Url.Action("Index","Check_out")">CHECKOUT</a>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Style{
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/cart.css" rel="stylesheet" />
+
+
+}
+@section Scripts{
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/script/cart.js"></script>
+
+}

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DA_BAN_SACH.Models.BaiViet>
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="hero-section jarallax">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title">Our Blog</h1>
+                <div class="breadcrumbs">
+                    <span class="item"><a href="@Url.Action("Index","Home")">Home /</a></span>
+                    <span class="item">Our Blog</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="latest-blog" class="scrollspy-section padding-large">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <!-- post grid -->
+                <div class="post-grid">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-4">
+
+                                <article class="post-item">
+
+                                    <figure>
+                                        <a href="@Url.Action("blogDetail","Blog" , new { id = item.MaBV})" class="image-hvr-effect">
+                                            <img src="~/Images/@item.HinhDD" alt="post" class="post-image">
+                                        </a>
+                                    </figure>
+
+                                    <div class="post-content">
+                                        <div class="meta-date">@item.NgayDang.Value.ToString("MMM dd, yyyy")</div>
+                                        <h3 class="post-title"><a href="@Url.Action("blogDetail","Blog" , new { id = item.MaBV})">@item.TenBV</a></h3>
+                                        <p>@item.NoiDung.Substring(0, 50)</p>
+                                    </div>
+                                </article>
+
+                            </div>
+
+                        }
+
+
+                    </div>
+                </div>
+                <!-- / post grid -->
+
+            </div>
+
+        </div>
+
+       
+
+    </div>
+</section>
+
+

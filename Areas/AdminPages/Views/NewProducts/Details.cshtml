@@ -1,0 +1,73 @@
+﻿@model DA_BAN_SACH.Models.Sach
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="content-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Thuộc tính</th>
+                <th>Dữ liệu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.TenSach)</td>
+                <td>@Html.DisplayFor(model => model.TenSach)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.GiaBan)</td>
+                <td>@Html.DisplayFor(model => model.GiaBan)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.GiamGia)</td>
+                <td>@Html.DisplayFor(model => model.GiamGia)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.MoTa)</td>
+                <td>@Html.DisplayFor(model => model.MoTa)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AnhBia)</td>
+                <td>@Html.DisplayFor(model => model.AnhBia)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NgayCapNhat)</td>
+                <td>@Html.DisplayFor(model => model.NgayCapNhat)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.SoLuongTon)</td>
+                <td>@Html.DisplayFor(model => model.SoLuongTon)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.MaTG)</td>
+                <td>@Html.DisplayFor(model => model.MaTG)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.BestSellers)</td>
+                <td>@Html.DisplayFor(model => model.BestSellers)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.HomeFlag)</td>
+                <td>@Html.DisplayFor(model => model.HomeFlag)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Popular)</td>
+                <td>@Html.DisplayFor(model => model.Popular)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.ChuDe.TenChuDe)</td>
+                <td>@Html.DisplayFor(model => model.ChuDe.TenChuDe)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NhaXuatBan.TenNXB)</td>
+                <td>@Html.DisplayFor(model => model.NhaXuatBan.TenNXB)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaSach }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </div>

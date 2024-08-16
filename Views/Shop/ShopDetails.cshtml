@@ -1,0 +1,33 @@
+﻿@model DA_BAN_SACH.Models.Sach
+@{
+    ViewBag.Title = "ShopDetails";
+}
+
+<section class="bg-sand padding-large">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                <a href="#" class="product-image"><img src="~/Images/@Model.AnhBia" style="width:600px;height:600px;"></a>
+            </div>
+
+            <div class="col-md-6 pl-5">
+                <div class="product-detail">
+                    <h1>@Model.TenSach</h1>
+                    <h4>Tác giả: By @Model.TacGia.TenTG</h4>
+                    <h3 class="price colored">Giá bán: @Model.GiaBan.Value.ToString("#,##0 ")₫ </h3>
+                    <h4>Mô tả sách:</h4>
+                    <p>
+                        @Model.MoTa
+                    </p>
+                    <input type="number" min="1" value="1" max="100"/>
+                    <button onclick="window.location.href = '@Url.Action("AddToCart","Cart", new { productId = @Model.MaSach })'" id="addtocart" class="button">Add To Cart</button>
+
+                    @*<a href="@Url.Action("AddToCart","Cart", new { productId = @Model.MaSach })" id="addtocart" class="button">Add To Cart</a>*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+   
+    </section>

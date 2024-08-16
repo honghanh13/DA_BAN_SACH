@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="00e3f04f2c284162902bc6b86c5b92ed" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="Model.Admin" Width="1.5" PointX="6.125" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BaiViet" Width="1.5" PointX="2.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ChiTietDatHang" Width="1.5" PointX="7.375" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ChuDe" Width="1.5" PointX="1.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="10.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DonDatHang" Width="1.5" PointX="9.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KhachHang" Width="1.5" PointX="6.875" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NhaXuatBan" Width="1.5" PointX="3.375" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Sach" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TacGia" Width="1.5" PointX="2.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_BaiViet" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Fk_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Fk_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Fk_ChuDe" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Fk_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Fk_NhaXuatBan" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Fk_TacGia_Sach" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

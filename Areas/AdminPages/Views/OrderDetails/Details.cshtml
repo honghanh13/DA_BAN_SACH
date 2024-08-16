@@ -1,0 +1,43 @@
+﻿@model DA_BAN_SACH.Models.ChiTietDatHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AdminPages/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <h2>Details</h2>
+
+    <div>
+        <h4>ChiTietDatHang</h4>
+        <hr />
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.SoLuong)</th>
+                    <td>@Html.DisplayFor(model => model.SoLuong)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DonGia)</th>
+                    <td>@Html.DisplayFor(model => model.DonGia)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TongTien)</th>
+                    <td>@Html.DisplayFor(model => model.TongTien)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DonDatHang.TenDH)</th>
+                    <td>@Html.DisplayFor(model => model.DonDatHang.TenDH)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Sach.TenSach)</th>
+                    <td>@Html.DisplayFor(model => model.Sach.TenSach)</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

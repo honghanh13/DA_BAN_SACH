@@ -1,0 +1,74 @@
+﻿@model DA_BAN_SACH.Models.DonDatHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/AdminPages/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>DonDatHang</h4>
+        <hr />
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.NgayDH)</th>
+                    <td>@Html.DisplayFor(model => model.NgayDH)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.NgayGiao)</th>
+                    <td>@Html.DisplayFor(model => model.NgayGiao)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DaThanhToan)</th>
+                    <td>@Html.DisplayFor(model => model.DaThanhToan)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TinhTrangGiaoHang)</th>
+                    <td>@Html.DisplayFor(model => model.TinhTrangGiaoHang)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TenDH)</th>
+                    <td>@Html.DisplayFor(model => model.TenDH)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.GhiChu)</th>
+                    <td>@Html.DisplayFor(model => model.GhiChu)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+                    <td>@Html.DisplayFor(model => model.DiaChi)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Hoten)</th>
+                    <td>@Html.DisplayFor(model => model.Hoten)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Sdt)</th>
+                    <td>@Html.DisplayFor(model => model.Sdt)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.KhachHang.HoTen)</th>
+                    <td>@Html.DisplayFor(model => model.KhachHang.HoTen)</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>

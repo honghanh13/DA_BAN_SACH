@@ -1,0 +1,51 @@
+﻿@model DA_BAN_SACH.Models.Contact
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/AdminPages/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+
+    <h4>Contact</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Thuộc tính</th>
+                <th>Dữ liệu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.HoTen)</td>
+                <td>@Html.DisplayFor(model => model.HoTen)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NoiDung)</td>
+                <td>@Html.DisplayFor(model => model.NoiDung)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NgayGui)</td>
+                <td>@Html.DisplayFor(model => model.NgayGui)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+    </div>
